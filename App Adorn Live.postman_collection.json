@@ -1,0 +1,366 @@
+{
+	"variables": [],
+	"info": {
+		"name": "App Adorn Live",
+		"_postman_id": "90e4e9ca-6e84-4bb6-3e66-0846b3514841",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "staff from location",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					},
+					{
+						"key": "location",
+						"value": "Ahmedabad",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"staff\",\r\n \"apitype\":\"get\",\r\n \"location\":\"1\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "time sloats",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"saffservices\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\",\r\n \"date\":\"2020-06-24\",\r\n \"location\" : \"1\",\r\n \"services\" : [\"1\",\"2\"],\r\n \"group_app\" : \"1\",\r\n \"group_data\" : {\r\n \t\"0\" : [\"184\",\"185\"],\r\n \t\"1\" : [\"179\",\"180\",\"181\",\"182\"]\r\n }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"locations\",\r\n \"apitype\":\"get\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "booking",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"appointment\",\r\n \"apitype\":\"store\",\r\n \"location\":\"1\",\r\n \"data\":{\r\n   \"cemail\":\"ayushi@gmail.com\",\r\n   \"mobile\":\"9876543210\",\r\n   \"staff\":\"0\",\r\n   \"date\":\"2020-07-01\",\r\n   \"start_time\":\"11:00\",\r\n   \"duration\":\"60\",\r\n   \"comments\":\"from web\",\r\n   \"total_amount\":\"300\",\r\n   \"payment_type\":\"store\",\r\n   \"group\":\"1\",\r\n   \"group_data\":{\r\n   \t\"group_name\":[\"prachi\",\"ayushi\"],\r\n   \t\"group_gender\":[\"F\",\"F\"],\r\n   \t\"group_services\":[[\"1\",\"2\",\"3\"],[\"12\",\"13\"]]\r\n   }\r\n }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "staff base service type",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"staffservicetype\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "service by type",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"stafftype\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\",\r\n \"service_type\":\"2\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "location base service type",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"servicetype\",\r\n \"apitype\":\"get\",\r\n \"location\":\"1\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "client register api",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"client\",\r\n\t\"apitype\":\"register\",\r\n\t\"data\":{\r\n\t\t\"email\":\"prachi123@gmail.com\",\r\n\t\t\"password\":\"welcome1\",\r\n\t\t\"first_name\":\"prachi\",\r\n\t\t\"middle_name\":\"\",\r\n\t\t\"last_name\":\"jdiowj\",\r\n\t\t\"mobile\":\"9876543210\",\r\n\t\t\"gender\":\"F\",\r\n\t\t\"location\":\"1\"\r\n\t}\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "client login api",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"client\",\r\n\t\"apitype\":\"login\",\r\n\t\"email\":\"demo@gmail.com\",\r\n\t\"password\":\"welcome11\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "resetpassword",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"client\",\r\n \"apitype\":\"resetpassword\",\r\n \"email\":\"prachikkothari@gmail.com\",\r\n \"old_password\":\"welcome1\",\r\n \"new_password\":\"welcome12234\"\r\n \r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "forgotpassword",
+			"request": {
+				"url": "http://appadorn.com/salonapp/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"client\",\r\n \"apitype\":\"forgotpassword\",\r\n \"email\":\"prachikkothari@gmail.com\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "appointment list",
+			"request": {
+				"url": "http://localhost/adornsalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"appointment\",\r\n\t\"apitype\":\"list\",\r\n\t\"client_id\":\"13\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "appointment delete",
+			"request": {
+				"url": "http://localhost/adornsalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"appointment\",\r\n\t\"apitype\":\"delete\",\r\n\t\"app_id\":\"63\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "appointment update",
+			"request": {
+				"url": "http://localhost/adornsalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"appointment\",\r\n\t\"apitype\":\"update\",\r\n\t\"app_id\":\"63\",\r\n\t\"data\":{\r\n\t\t\"cemail\":\"ayushi@gmail.com\",\r\n\t\t\"mobile\":\"9876543210\",\r\n\t\t\"staff\":\"0\",\r\n\t\t\"date\":\"2020-07-07\",\r\n\t\t\"start_time\":\"11:00\",\r\n\t\t\"duration\":\"5\",\r\n\t\t\"comments\":\"from web\",\r\n\t\t\"total_amount\":\"300\",\r\n\t\t\"payment_type\":\"instore\",\r\n\t\t\"group\":\"1\",\r\n\t\t\"group_data\":{\r\n   \t\t\t\"group_name\":[\"prachi\",\"ayushi\"],\r\n   \t\t\t\"group_gender\":[\"F\",\"F\"],\r\n   \t\t\t\"group_services\":[[\"1\",\"2\",\"3\"],[\"12\",\"13\"]]\r\n\t\t}\r\n\t}\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

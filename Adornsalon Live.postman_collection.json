@@ -1,0 +1,241 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Adornsalon Live",
+		"_postman_id": "df6c60e2-5424-7023-59f9-f55ac0a5300f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "staff from location",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					},
+					{
+						"key": "location",
+						"value": "Ahmedabad",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"staff\",\r\n \"apitype\":\"get\",\r\n \"location\":\"1\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "time sloats",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"saffservices\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\",\r\n \"date\":\"2020-06-24\",\r\n \"location\" : \"1\",\r\n \"services\" : [\"1\",\"2\"]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"locations\",\r\n \"apitype\":\"get\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "booking",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"appointment\",\r\n \"apitype\":\"store\",\r\n \"location\":\"0\",\r\n \"data\":{\r\n \t\"cname\":\"1\",\r\n \t\"cemail\":\"demo@gmail.com\",\r\n \t\"mobile\":\"9876543210\",\r\n \t\"staff\":\"2\",\r\n\t\"gender\":\"F\",\r\n \t\"date\":\"2020-06-20\",\r\n \t\"services\":[\"1\",\"2\"],\r\n \t\"start_time\":\"19:00\",\r\n \t\"duration\":\"60\",\r\n \t\"comments\":\"demo api\",\r\n\t\"total_amount\":\"200\"\r\n }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "staff base service type",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"staffservicetype\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "service by type",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"stafftype\",\r\n \"apitype\":\"get\",\r\n \"staff\":\"2\",\r\n \"service_type\":\"2\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "location base service type",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"apiname\":\"servicetype\",\r\n \"apitype\":\"get\",\r\n \"location\":\"1\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "client register api",
+			"request": {
+				"url": "http://xdevstaging.com/adornbeautysalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"client\",\r\n\t\"apitype\":\"register\",\r\n\t\"data\":{\r\n\t\t\"email\":\"prachi@gmail.com\",\r\n\t\t\"password\":\"welcome1\",\r\n\t\t\"first_name\":\"prachi\",\r\n\t\t\"middle_name\":\"qwert\",\r\n\t\t\"last_name\":\"jdiowj\",\r\n\t\t\"mobile\":\"9876543210\",\r\n\t\t\"gender\":\"F\",\r\n\t\t\"location\":\"1\"\r\n\t}\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "client login api",
+			"request": {
+				"url": "http://localhost/adornsalon/public/api/appointmentapi",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "client-id",
+						"value": "d23b94135dd2363a9351561234a1ef32",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiname\":\"client\",\r\n\t\"apitype\":\"login\",\r\n\t\"email\":\"demo@gmail.com\",\r\n\t\"password\":\"welcome11\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
