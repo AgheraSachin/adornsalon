@@ -83,6 +83,7 @@
 
                                     <div id="showtime"></div>
                                     <div id="error"></div>
+                                    <div id="links"></div>
 
                                     <div class="form-group">
                                         <div class="row">
@@ -832,7 +833,7 @@
         function checkLink() {
             var client_id = $("#client").val();
             var service_id = $("#service_add").val();
-
+            var html = '<div class="card-alert card gradient-45deg-amber-amber"><div class="card-content white-text"><p>';
             $.ajax({
                 type: "POST",
                 url: '{{ route("consultForm.link") }}',
@@ -842,7 +843,13 @@
                     'service_id': service_id,
                 },
                 success: function (response) {
-                    console.log(response);
+                    if (response.status) {
+                        response.data.forEach(function (val, key) {
+                            html += '<a href="' + val.url + '" target="_blank">' + val.url + '</a><br/>';
+                        })
+                        html += '</p></div></div>';
+                        $("#links").html(html);
+                    }
                 }
             });
         }

@@ -11,8 +11,8 @@
     
     <script src="{{ asset('public/js/vendors.min.js') }}"></script>
     <script src="{{ asset('public/js/scripts/form-elements.js')}}"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="{{ asset('public/js/form_builder.js')}}"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{ asset('public/js/form_builder.js')}}"></script>
 
     <script src="{{ asset('public/js/scripts/advance-ui-modals.js')}}"></script>
     <script src="{{ asset('public/vendors/select2/select2.full.min.js')}}"></script>

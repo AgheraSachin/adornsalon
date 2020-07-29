@@ -10,15 +10,15 @@ NOTE:
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 .margin_top_20 {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .select2-container {
-	z-index: 9999 !important;
+    z-index: 9999 !important;
 }
 
 .brand-sidebar .logo-wrapper a.brand-logo img {
@@ -26,47 +26,53 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 }
 
 .brand-sidebar .brand-logo {
-	padding: 7px 12px 7px 12px !important;
+    padding: 7px 12px 7px 12px !important;
 }
 
 .sidebar-text {
-	top: -14px;
+    top: -14px;
     position: relative;
 }
 
 .fc-right {
-	right: 22px;
+    right: 22px;
     position: absolute;
 }
 
 .dis_none {
-	display: none;
+    display: none;
 }
 
 .required {
-	color: red;
+    color: red;
 }
 
 .ql-container {
-	height: 100px !important;
+    height: 100px !important;
 }
 
 .ql-tooltip .ql-editing .pl-flip {
-	left: 50% !important;
+    left: 50% !important;
     top: 10px !important;
 }
 
 .fc-more-popover {
-	top: -5.45313px;
+    top: -5.45313px;
     left: 283px;
     height: 200px;
     overflow-y: auto;
 }
 
 .select-dropdown {
-	z-index: 99999;
+    z-index: 99999;
 }
 
 .mart {
-	margin-top: 23px;
+    margin-top: 23px;
+}
+
+canvas {
+    display: block;
+    position: relative;
+    border: 1px solid;
 }

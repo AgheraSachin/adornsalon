@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Client;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -200,8 +203,76 @@ class ConsultationFormController extends Controller
 
     public function getConsultFormLink(Request $request)
     {
+        $saved_form = [];
         foreach ($request->input('service_id') as $key => $val) {
-
+            if (!ConsultationFormData::where(['tbl_service_id' => $val, 'tbl_consultationform_data_client_id' => $request->input('client_id')])->exists()) {
+                $consult_form_id = ConsultationForm::where('tbl_consultation_form_service_id', $val)->get();
+                $saved_form[] = ConsultationFormData::create(['tbl_service_id' => $val, 'tbl_consultationform_data_client_id' => $request->input('client_id'), 'url' => substr(md5(time()), 0, 8), 'tbl_consultationform_data_const_id' => $consult_form_id[0]->tbl_consultation_form_service_id, 'tbl_consultationform_data_insertdate' => now(),]);
+            }
         }
+
+        $results = ConsultationFormData::where('tbl_consultationform_data_client_id', $request->input('client_id'))->whereIn('tbl_service_id', $request->input('service_id'))->where('url', '!=', '')->get();
+        return \response()->json(['status' => true, 'data' => $results], 200);
+    }
+
+    public function getConsultFormData($url)
+    {
+        $consult_form = ConsultationFormData::with('consultFormBuilder')->where('url', $url)->get();
+//        dd($consult_form->toArray());
+        return view('consultation_form.consult_form')->with(['consult_form' => $consult_form[0]]);
+    }
+
+    public function saveDate(Request $request)
+    {
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'sign' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator->errors()->messages());
+        }
+        $image_parts = explode(";base64,", $request->input('sign'));
+        $image_base64 = base64_decode($image_parts[1]);
+        $filename = time() . '.png';
+        file_put_contents(public_path('signatures/') . $filename, $image_base64);
+        if (ConsultationFormData::where(['tbl_consultationform_data_id' => $request->input('form_id'), 'tbl_consultationform_data_data' => null])->exists()) {
+            unset($input['sign']);
+            unset($input['_token']);
+            unset($input['client_id']);
+            unset($input['form_id']);
+            unset($input['url']);
+            ConsultationFormData::where('tbl_consultationform_data_id', $request->input('form_id'))->update(['tbl_consultationform_data_data' => json_encode($input)]);
+        } else {
+            $client_id = $input['client_id'];
+            unset($input['sign']);
+            unset($input['_token']);
+            unset($input['client_id']);
+            unset($input['form_id']);
+            unset($input['url']);
+            $old = ConsultationFormData::where('tbl_consultationform_data_id', $request->input('form_id'))->get();
+            ConsultationFormData::create(['tbl_service_id' => $old[0]->tbl_service_id, 'tbl_consultationform_data_client_id' => $client_id, 'tbl_consultationform_data_data' => json_encode($input), 'url' => '', 'tbl_consultationform_data_const_id' => $old[0]->tbl_consultationform_data_const_id, 'tbl_consultationform_data_insertdate' => now()]);
+        }
+        return \redirect('consulation_form_appointment_list');
+    }
+
+    public function getList()
+    {
+        $result = DB::table('tbl_consultationform_data')
+            ->leftJoin('tbl_services', 'tbl_services.tbl_services_id', '=', 'tbl_consultationform_data.tbl_service_id')
+            ->leftJoin('tbl_clients', 'tbl_clients.tbl_clients_id', '=', 'tbl_consultationform_data.tbl_consultationform_data_client_id')
+            ->groupBy('tbl_consultationform_data.tbl_consultationform_data_client_id', 'tbl_consultationform_data.tbl_service_id')
+            ->select('tbl_services.tbl_services_name', 'tbl_clients.tbl_clients_first_name', 'tbl_clients.tbl_clients_last_name', 'tbl_consultationform_data.*')
+            ->get();
+
+
+        return view('consultation_form.list_consultation', compact('result'));
+    }
+
+    public function historyView($client_id, $service_id)
+    {
+        $history = ConsultationFormData::with('consultFormBuilder')->where(['tbl_consultationform_data_client_id' => $client_id, 'tbl_service_id' => $service_id])->get()->toArray();
+//        dd($history);
+        return view('consultation_form.history-view')->with(['history' => $history]);
+
     }
 }

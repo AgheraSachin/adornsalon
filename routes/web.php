@@ -137,3 +137,7 @@ Route::get('partidata/{id}/{formid}', 'ConsultationFormController@partidata')->n
 Route::post('consultation_form/get_parti_data', 'ConsultationFormController@getpatidata')->name('ConsultationFormGetPartiData');
 
 Route::post('client_consult_form_link', 'ConsultationFormController@getConsultFormLink')->name('consultForm.link');
+Route::get('consultant_form/{url}', 'ConsultationFormController@getConsultFormData');
+Route::post('save_consultant_form', 'ConsultationFormController@saveDate')->name('consultant.form.save');
+Route::get('consulation_form_appointment_list', 'ConsultationFormController@getList')->name('consulation_form.appointment.list');
+Route::get('consulation_history/{client_id}/{service_id}', 'ConsultationFormController@historyView')->name('consulation.history');
