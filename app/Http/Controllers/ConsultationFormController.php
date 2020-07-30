@@ -207,7 +207,7 @@ class ConsultationFormController extends Controller
         foreach ($request->input('service_id') as $key => $val) {
             if (!ConsultationFormData::where(['tbl_service_id' => $val, 'tbl_consultationform_data_client_id' => $request->input('client_id')])->exists()) {
                 $consult_form_id = ConsultationForm::where('tbl_consultation_form_service_id', $val)->get();
-                $saved_form[] = ConsultationFormData::create(['tbl_service_id' => $val, 'tbl_consultationform_data_client_id' => $request->input('client_id'), 'url' => substr(md5(time()), 0, 8), 'tbl_consultationform_data_const_id' => $consult_form_id[0]->tbl_consultation_form_service_id, 'tbl_consultationform_data_insertdate' => now(),]);
+                $saved_form[] = ConsultationFormData::create(['tbl_service_id' => $val, 'tbl_consultationform_data_client_id' => $request->input('client_id'), 'url' => substr(md5(time()), 0, 8), 'tbl_consultationform_data_const_id' => $consult_form_id[0]->tbl_consultation_form_id, 'tbl_consultationform_data_insertdate' => now(),]);
             }
         }
 
